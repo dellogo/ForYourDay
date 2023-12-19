@@ -110,19 +110,19 @@
                 tmp += '<input type="checkbox" class="w_chk_box" onchange="w_state_chg(this); " name="w_check">';
             }
             if (item.w_type === "Cloth") {
-                tmp += `<div class="w_type">👠</div>`;
+                tmp += `<div class="w_type_list">👠</div>`;
             } else if(item.w_type === "Doll") {
-                tmp += `<div class="w_type">🧸</div>`;
+                tmp += `<div class="w_type_list">🧸</div>`;
             } else if(item.w_type === "Electronic") {
-                tmp += `<div class="w_type">🖱️️</div>`;
+                tmp += `<div class="w_type_list">🖱️️</div>`;
             } else if(item.w_type === "Food") {
-                tmp += `<div class="w_type">🍔</div>`;
+                tmp += `<div class="w_type_list">🍔</div>`;
             } else if(item.w_type === "Cosmetic") {
-                tmp += `<div class="w_type">💄</div>`;
+                tmp += `<div class="w_type_list">💄</div>`;
             } else if(item.w_type === "Book") {
-                tmp += `<div class="w_type">📚</div>`;
+                tmp += `<div class="w_type_list">📚</div>`;
             } else if(item.w_type === "Etc") {
-                tmp += `<div class="w_type">💫️</div>`;
+                tmp += `<div class="w_type_list">💫️</div>`;
             }
             tmp += `<div class="wish_txt">${'${item.w_content}'}</div>`;
             tmp += `  <input type="text" data-bno="` + item.w_no + '" value="' + item.w_no + '" hidden="hidden" class="w_no">'

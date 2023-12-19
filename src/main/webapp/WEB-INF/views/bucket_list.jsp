@@ -110,19 +110,19 @@
                 tmp += '<input type="checkbox" class="b_chk_box" onchange="b_state_chg(this)" name="b_check">';
             }
             if (item.b_type === "Travel") {
-                tmp += `<div class="b_type">🧳</div>`;
+                tmp += `<div class="b_type_list">🧳</div>`;
             } else if(item.b_type === "Fun") {
-                tmp += `<div class="b_type">🎈</div>`;
+                tmp += `<div class="b_type_list">🎈</div>`;
             } else if(item.b_type === "Adventure") {
-                tmp += `<div class="b_type">🏂</div>`;
+                tmp += `<div class="b_type_list">🏂</div>`;
             } else if(item.b_type === "Creative") {
-                tmp += `<div class="b_type">🎨</div>`;
+                tmp += `<div class="b_type_list">🎨</div>`;
             } else if(item.b_type === "Skills") {
-                tmp += `<div class="b_type">🪄</div>`;
+                tmp += `<div class="b_type_list">🪄</div>`;
             } else if(item.b_type === "Education") {
-                tmp += `<div class="b_type">📚</div>`;
+                tmp += `<div class="b_type_list">📚</div>`;
             } else if(item.b_type === "Personal") {
-                tmp += `<div class="b_type">❤️</div>`;
+                tmp += `<div class="b_type_list">❤️</div>`;
             }
             tmp += `<div class="bucket_txt">${'${item.b_content}'}</div>`;
             tmp += `  <input type="text" data-bno="` + item.b_no + '" value="' + item.b_no + '" hidden="hidden" class="b_no">'

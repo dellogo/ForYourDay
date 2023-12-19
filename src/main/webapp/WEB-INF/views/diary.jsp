@@ -130,7 +130,7 @@
                 <option value="Fun">Fun</option>
                 <option value="Sad">Sad</option>
                 <option value="Angry">Angry</option>
-                <option value="Worry">Worried</option>
+                <option value="Worry">Worry</option>
             </select>
             <div class="diary_edit_fin_btn">Add to My Diary</div>
         </div>
@@ -204,7 +204,7 @@
                     tmp += `<div class="d_condition">😢</div>`;
                 } else if(item.d_condition === "Angry") {
                     tmp += `<div class="d_condition">😠</div>`;
-                } else if(item.d_condition === "Worried") {
+                } else if(item.d_condition === "Worry") {
                     tmp += `<div class="d_condition">😟</div>`;
                 }
                 tmp += `<div class="diary_inner_txt">${'${item.d_content}'}</div>`;
