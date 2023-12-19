@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bitstudy.app.dao.userMapper">
+    <insert id="register" parameterType="UserDto">
+        insert into user_info(user_id, user_pw, user_name, user_birth)
+        values (#{user_id}, #{user_pw}, #{user_name}, #{user_birth})
+    </insert>
+
+    <select id="doubleChk_ID" parameterType="String" resultType="int">
+        select count(user_id) from user_info where user_id=#{user_id}
+    </select>
+
+    <select id="login" parameterType="map" resultType="UserDto">
+        select * from user_info where user_id=#{user_id} and user_pw=#{user_pw}
+    </select>
+</mapper>

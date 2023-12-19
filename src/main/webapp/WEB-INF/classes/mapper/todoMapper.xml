@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bitstudy.app.dao.todoMapper">
+    <insert id="today_write" parameterType="TodoTodayDto">
+        insert into todo_today (user_no, t_date, t_content, t_state, t_update)
+        values(#{user_no}, #{t_date}, #{t_content}, 0, now())
+    </insert>
+
+    <insert id="term_write" parameterType="TodoTermDto">
+        insert into todo_term (user_no, tt_start_date, tt_fin_date, tt_content, tt_state, tt_update)
+        values(#{user_no}, #{tt_start_date}, #{tt_fin_date}, #{tt_content}, 0, now())
+    </insert>
+
+    <select id="today_list" parameterType="map" resultType="TodoTodayDto">
+        select * from todo_today
+        where user_no = #{user_no} and t_date = #{t_date}
+    </select>
+
+    <select id="term_list" parameterType="map" resultType="TodoTermDto">
+        select * from todo_term
+        where user_no = #{user_no}
+        and #{select_date} between tt_start_date and tt_fin_date
+    </select>
+
+    <update id="t_state_chg" parameterType="map">
+        update todo_today
+        set t_state = #{t_state}
+        where t_no = #{t_no}
+    </update>
+
+    <update id="tt_state_chg" parameterType="map">
+        update todo_term
+        set tt_state = #{tt_state}
+        where tt_no = #{tt_no}
+    </update>
+
+    <delete id="today_remove" parameterType="int">
+        delete from todo_today
+        where t_no = #{t_no}
+    </delete>
+
+    <delete id="term_remove" parameterType="int">
+        delete from todo_term
+        where tt_no = #{tt_no}
+    </delete>
+</mapper>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bitstudy.app.dao.bucketMapper">
+    <insert id="bucket_write" parameterType="BucketDto">
+        insert into bucket_list(user_no, b_content, b_type, b_state)
+        values(#{user_no}, #{b_content}, #{b_type}, 0)
+    </insert>
+
+    <select id="bucket_list" parameterType="int" resultType="BucketDto">
+        select * from bucket_list
+        where user_no = #{user_no}
+    </select>
+
+    <delete id="bucket_remove" parameterType="int">
+        delete from bucket_list
+        where b_no = #{b_no}
+    </delete>
+
+    <select id="bucket_type_list" parameterType="map" resultType="BucketDto">
+        select * from bucket_list
+        where b_type = #{b_type} and user_no = #{user_no}
+    </select>
+
+    <update id="b_state_chg" parameterType="map">
+        update bucket_list
+        set b_state = #{b_state}
+        where b_no = #{b_no}
+    </update>
+
+    <update id="b_state_type_chg" parameterType="map">
+        update bucket_list
+        set b_state = #{b_state}
+        where true
+
+        <choose>
+            <when test='#{b_type} == null'>
+                and b_no = #{b_no}
+            </when>
+            <when test='#{b_type} != null'>
+                and b_no = #{b_no} and b_type = #{b_type}
+            </when>
+        </choose>
+
+    </update>
+
+    <select id="b_state_fin_cnt" parameterType="int" resultType="int">
+        select count(b_no) from bucket_list
+        where user_no = #{user_no} and b_state = 1
+    </select>
+
+    <select id="b_state_all_cnt" parameterType="int" resultType="int">
+        select count(b_no) from bucket_list
+        where user_no = #{user_no}
+    </select>
+</mapper>

@@ -1,0 +1,23 @@
+.content{
+    height: 60vh;
+}
+.register_content{
+    margin: auto;
+    width: 40%;
+    height: 75vh;
+    margin-top: calc(((100vh - 10vh - 20px) - 75vh) / 2);
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 30px;
+    padding: 50px;
+    box-shadow: 3px 3px 5px 3px rgba(85, 85, 85, 0.24);
+}
+#register_frm{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+input{
+    height: 30px;
+}

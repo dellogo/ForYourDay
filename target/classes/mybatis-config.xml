@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <typeAliases>
+        <typeAlias alias="BucketDto" type="com.bitstudy.app.domain.BucketDto"/>
+        <typeAlias alias="DiaryDto" type="com.bitstudy.app.domain.DiaryDto"/>
+        <typeAlias alias="TodoTodayDto" type="com.bitstudy.app.domain.TodoTodayDto"/>
+        <typeAlias alias="TodoTermDto" type="com.bitstudy.app.domain.TodoTermDto"/>
+        <typeAlias alias="UserDto" type="com.bitstudy.app.domain.UserDto"/>
+        <typeAlias alias="WishDto" type="com.bitstudy.app.domain.WishDto"/>
+    </typeAliases>
+</configuration>

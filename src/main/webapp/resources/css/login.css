@@ -1,0 +1,43 @@
+.content{
+    height: 60vh;
+}
+.login_content{
+    width: 40%;
+    height: 75vh;
+    margin: calc(((100vh - 10vh - 20px) - 75vh) / 2) auto auto;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 50px;
+    box-shadow: 3px 3px 5px 3px rgba(85, 85, 85, 0.24);
+}
+.welcome_txt{
+    font-size: 40px;
+    font-weight: bolder;
+    text-align: center;
+}
+#login_frm{
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+input {
+    height: 30px;
+}
+.signup_box{
+    text-align: center;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: baseline;
+}
+.go_signup_btn{
+    font-size: 20px;
+    font-weight: bolder;
+    cursor: pointer;
+}

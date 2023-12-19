@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bitstudy.app.dao.wishMapper">
+    <insert id="wish_write" parameterType="WishDto">
+        insert into wish_list(user_no, w_content, w_type, w_state)
+        values(#{user_no}, #{w_content}, #{w_type}, 0)
+    </insert>
+
+    <select id="wish_list" parameterType="int" resultType="WishDto">
+        select * from wish_list
+        where user_no = #{user_no}
+    </select>
+
+    <delete id="wish_remove" parameterType="int">
+        delete from wish_list
+        where w_no = #{w_no}
+    </delete>
+
+    <select id="wish_type_list" parameterType="map" resultType="WishDto">
+        select * from wish_list
+        where w_type = #{w_type} and user_no = #{user_no}
+    </select>
+
+    <update id="w_state_chg" parameterType="map">
+        update wish_list
+        set w_state = #{w_state}
+        where w_no = #{w_no}
+    </update>
+
+    <update id="w_state_type_chg" parameterType="map">
+        update wish_list
+        set w_state = #{w_state}
+        where true
+
+        <choose>
+            <when test='#{w_type} == null'>
+                and w_no = #{w_no}
+            </when>
+            <when test='#{w_type} != null'>
+                and w_no = #{w_no} and w_type = #{w_type}
+            </when>
+        </choose>
+
+    </update>
+
+    <select id="w_state_fin_cnt" parameterType="int" resultType="int">
+        select count(w_no) from wish_list
+        where user_no = #{user_no} and w_state = 1
+    </select>
+
+    <select id="w_state_all_cnt" parameterType="int" resultType="int">
+        select count(w_no) from wish_list
+        where user_no = #{user_no}
+    </select>
+</mapper>
